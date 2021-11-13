@@ -10,8 +10,11 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Cuda
+include_directories(/usr/local/nvidia/lib64/)
 find_package(CUDA 9 REQUIRED)
+
 include_directories(${CUDA_INCLUDE_DIRS})
+
 set(CUDA_ARCH "50 through 61" CACHE STRING "Architecture(s) for which to generate CUDA PTX code")
 if(CUDA_VERSION_MAJOR LESS 10)
     set_property(CACHE CUDA_ARCH PROPERTY STRINGS "50 through 61" "50" "60" "61")
@@ -118,7 +121,7 @@ if(${CUDA_VERSION_MAJOR} LESS 11)
 endif()
 
 # OpenCV lib: this version uses the customized build
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED PATHS /usr/share/OpenCV NO_DEFAULT_PATH)
 include_directories(${OpenCV_INCLUDE_DIR})
 
 # The boost library is contained in pcl

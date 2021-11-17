@@ -1,0 +1,2 @@
+boxing.zip filter=lfs diff=lfs merge=lfs -text
+sintel_small_speed filter=lfs diff=lfs merge=lfs -text

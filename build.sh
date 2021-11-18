@@ -51,4 +51,5 @@ mkdir build && cd build
 cmake -DCUDA_ARCH=61 ..
 sudo make -j4
 
+unzip /kaggle/working/surfelwarp/test_data/boxing.zip -d /kaggle/working/surfelwarp/test_data
 

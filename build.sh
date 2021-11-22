@@ -48,7 +48,7 @@ cp /usr/lib/x86_64-linux-gnu/libfontconfig.so.1 /opt/conda/lib/libfontconfig.so.
 
 cd surfelwarp
 mkdir build && cd build
-cmake -DCUDA_ARCH=61 ..
+cmake -DCUDA_ARCH=60 ..
 sudo make -j4
 
 unzip /kaggle/working/surfelwarp/test_data/boxing.zip -d /kaggle/working/surfelwarp/test_data

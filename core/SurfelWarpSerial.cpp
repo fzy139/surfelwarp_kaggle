@@ -71,8 +71,9 @@ surfelwarp::SurfelWarpSerial::~SurfelWarpSerial() {
  */
 void surfelwarp::SurfelWarpSerial::ProcessFirstFrame() {
 	//Process it
+	LOG(INFO) << "ProcessFirstFrame";
 	const auto surfel_array = m_image_processor->ProcessFirstFrameSerial(m_frame_idx);
-	
+	LOG(INFO) << "ProcessFirstFrameSerial";
 	//Build the reference and live nodes, color and init time
 	m_updated_geometry_index = 0;
 	m_renderer->MapSurfelGeometryToCuda(m_updated_geometry_index);
@@ -84,7 +85,7 @@ void surfelwarp::SurfelWarpSerial::ProcessFirstFrame() {
 	
 	//Build the index and skinning nodes and surfels
 	m_warp_field->BuildNodeGraph();
-	
+	LOG(INFO) << "BuildNodeGraph";
 	//Perform skinning
 	const auto& reference_nodes = m_warp_field->ReferenceNodeCoordinates();
 	m_reference_knn_skinner->BuildInitialSkinningIndex(reference_nodes);

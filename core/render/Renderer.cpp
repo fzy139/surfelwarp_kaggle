@@ -6,6 +6,13 @@
 #include "common/Constants.h"
 #include "common/ConfigParser.h"
 
+void
+error_callback(int error, const char* description)
+{
+   puts(description);
+}
+
+
 surfelwarp::Renderer::Renderer(int image_rows, int image_cols)
 	: 
 m_image_width(image_cols),
@@ -13,6 +20,9 @@ m_image_height(image_rows),
 m_fusion_map_width(image_cols * Constants::kFusionMapScale),
 m_fusion_map_height(image_rows * Constants::kFusionMapScale)
 {
+
+	glfwSetErrorCallback(error_callback);
+	
 	if(!glfwInit()) {
 		printf("err: %s\n", strerror(errno));
 		LOG(FATAL) << "The graphic pipeline is not correctly initialized";

@@ -14,6 +14,7 @@ m_fusion_map_width(image_cols * Constants::kFusionMapScale),
 m_fusion_map_height(image_rows * Constants::kFusionMapScale)
 {
 	if(!glfwInit()) {
+		printf("%s\n", strerror(errno));
 		LOG(FATAL) << "The graphic pipeline is not correctly initialized";
 	}
 	

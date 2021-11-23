@@ -35,7 +35,7 @@ surfelwarp::SurfelWarpSerial::SurfelWarpSerial() {
 	//The knn index
 	m_live_nodes_knn_skinner = KNNBruteForceLiveNodes::Instance();
 	m_reference_knn_skinner = ReferenceNodeSkinner::Instance();
-	
+	LOG(INFO) << "bf Renderer";
 	//Construct the renderer
 	m_renderer = std::make_shared<Renderer>(config.clip_image_rows(), config.clip_image_cols());
 	
